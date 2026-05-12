@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS issued;
+
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    author TEXT NOT NULL,
+    year INTEGER NOT NULL
+);
+
+CREATE TABLE issued (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    book_id INTEGER NOT NULL,
+    issued_to TEXT NOT NULL,
+    FOREIGN KEY (book_id) REFERENCES books(id)
+);
